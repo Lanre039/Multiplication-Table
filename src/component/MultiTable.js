@@ -78,12 +78,11 @@ class Form extends React.Component {
     }
     
     render() {
-      
       return (
         <section className="data-form">
             <h1 className="head">PRIME MULTIPLICATION TABLE GENERATOR</h1>
               <form className="form" onSubmit={this.handleSubmit}>
-                <div style={{display: 'flex'}}>
+                <div style={{display: "flex"}}>
                     <input onChange={this.handleChange} value={this.state.formInput} name="formInput" placeholder="Enter positive integer..." required/>
                   <button type="submit" className="btn btn-2">Submit</button>
                 </div>
