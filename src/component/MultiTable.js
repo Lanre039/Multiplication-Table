@@ -66,6 +66,7 @@ class Form extends React.Component {
 
             // multiply successive array data with current value (e.g 2*2, 2*3, 2*5  )
               multiply = data.map(cur => data[i] * cur) 
+              multiply = [data[i], ...multiply]
           }
           product.push([...multiply])
       }
@@ -101,14 +102,12 @@ class Form extends React.Component {
                 </thead>
                 <tbody>
                     {
-                      (this.state.primeNo.length > 0) ? this.state.primeNo.map((data, index) => {
+                      (this.state.primeNo.length > 0) ? this.renderTableData(this.state.primeNo).map((data, index) => {
                         return (
                         <tr key={index}>
-                          <th key={index}>{data}</th>
-                          {this.renderTableData(this.state.primeNo)[index].map((product, index) => {
-                          return <td key={index}>{product}</td>
-                          })}
-                        </tr>
+                          <th key={index}>{data.splice(0,1)}</th>
+                          {data.map((td, index) => <td key={index}>{td}</td>)}
+                         </tr> 
                         )     
                       }):<></>
                     }
